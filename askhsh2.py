@@ -7,36 +7,56 @@ def changedate(monthnumber,data):
     return date
 np.set_printoptions(threshold=np.nan)
 dataset = np.load('dataset.npy')
-print(dataset[0][24])
+
+print dataset[0]
+
 for data in dataset:
     if data[1] == 'M':
         data[1] = 0
     elif data[1] == 'F':
         data[1] = 1
-    month = data[24][3:-5]
+    month = data[23][3:-5]
+    temp = data[23]
+    if temp == '':
+        print data
     if month == 'Jan':
-        data[24] = changedate(1,data[24])
+        data[23] = changedate(1,data[23])
     if month == 'Feb':
-        data[24] = changedate(2,data[24])
+        data[23] = changedate(2,data[23])
     if month == 'Mar':
-        data[24] = changedate(3,data[24])
+        data[23] = changedate(3,data[23])
     if month == 'Apr':
-        data[24] = changedate(4,data[24])
+        data[23] = changedate(4,data[23])
     if month == 'May':
-        data[24] = changedate(5,data[24])
+        data[23] = changedate(5,data[23])
     if month == 'Jun':
-        data[24] = changedate(6,data[24])
+        data[23] = changedate(6,data[23])
     if month == 'Jul':
-        data[24] = changedate(7,data[24])
+        data[23] = changedate(7,data[23])
     if month == 'Aug':
-        data[24] = changedate(8,data[24])
+        data[23] = changedate(8,data[23])
     if month == 'Sep':
-        data[24] = changedate(9,data[24])
+        data[23] = changedate(9,data[23])
     if month == 'Oct':
-        data[24] = changedate(10,data[24])
+        data[23] = changedate(10,data[23])
     if month == 'Nov':
-        data[24] = changedate(11,data[24])
+        data[23] = changedate(11,data[23])
     if month == 'Dec':
-        data[24] = changedate(12,data[24])
-    data = data[23:]
-print(dataset[0])
+        data[23] = changedate(12,data[23])
+    #print len(data)
+
+    for minidata in data:
+        #print i
+        if type(minidata) != int:
+            if type(minidata) == str:
+                if not minidata:
+                    print data[23]
+                else:
+                    minidata = int(minidata)
+
+
+
+
+
+    #print data
+#print(dataset[1])

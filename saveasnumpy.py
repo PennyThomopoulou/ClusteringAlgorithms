@@ -94,21 +94,27 @@ for line in lines:
     i+=1
 fileStream.close()
 
-#print(movies)
+print(movies)
 
-dataset = np.zeros((100000,46),dtype= object)
+dataset = np.zeros((100000,45),dtype= object)
 i = 0
 for rating in ratings:
-    dataset[i][44] = rating[2]
-    dataset[i][45] = rating[3]
+    dataset[i][43] = rating[2]
+    dataset[i][44] = rating[3]
     userid = rating[0]-1
-    for j in range(24):
+    for j in range(23):
         dataset[i][j] = fullusers[userid][j+1]
     movieid = rating[1]-1
-    dataset[i][24] = movies[movieid][2]
-    for j in range(19):
+    dataset[i][23] = movies[movieid][2]
+    for j in range(18):
         dataset[i][j+25] = movies[movieid][j+5]
     i+=1
 
+for i in range (100000):
+    for j in range (45):
+        if (dataset[i][j] == ''):
+            print i
+            print j
+print (dataset[99999])
 
 np.save('dataset.npy',dataset)
