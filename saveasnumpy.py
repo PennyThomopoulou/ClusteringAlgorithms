@@ -92,8 +92,7 @@ for line in lines:
     i+=1
 fileStream.close()
 
-#print(movies)
-
+print(movies)
 dataset = np.zeros((100000,19),dtype= float)
 i = 0
 for rating in ratings:
@@ -107,7 +106,5 @@ for rating in ratings:
     #userid = rating[0]-1
     #for j in range(24):
     #   dataset[i][j] = fullusers[userid][j+1]
-
-
 
 np.save('dataset.npy',dataset)
