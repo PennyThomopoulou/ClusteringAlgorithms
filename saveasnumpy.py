@@ -12,8 +12,6 @@ for line in lines:
 fileStream.close()
 #print(ratings)
 
-
-
 #Read all users
 users = np.zeros((943,5), dtype=object)
 
@@ -28,7 +26,7 @@ fileStream.close()
 
 
 #assign occupations
-fullusers = np.zeros((943,25), dtype = object)
+'''fullusers = np.zeros((943,25), dtype = object)
 i = 0
 for user in users:
     fullusers[i][0] = user[0]
@@ -79,7 +77,7 @@ for user in users:
         fullusers[i][23] = 1
     i+=1
 #print(fullusers)
-
+'''
 
 #Read all movies
 
@@ -96,19 +94,20 @@ fileStream.close()
 
 #print(movies)
 
-dataset = np.zeros((100000,46),dtype= object)
+dataset = np.zeros((100000,19),dtype= float)
 i = 0
 for rating in ratings:
-    dataset[i][44] = rating[2]
-    dataset[i][45] = rating[3]
-    userid = rating[0]-1
-    for j in range(24):
-        dataset[i][j] = fullusers[userid][j+1]
-    movieid = rating[1]-1
-    dataset[i][24] = movies[movieid][2]
-    for j in range(19):
-        dataset[i][j+25] = movies[movieid][j+5]
-    i+=1
+    movieId = rating[1] - 1
+
+    for j in range(18):
+        dataset[i][j] = movies[movieId][j + 6]
+
+    dataset[i][18] = rating[2]*0.25-0.25
+    i += 1
+    #userid = rating[0]-1
+    #for j in range(24):
+    #   dataset[i][j] = fullusers[userid][j+1]
+
 
 
 np.save('dataset.npy',dataset)
