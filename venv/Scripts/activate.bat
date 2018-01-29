@@ -1,5 +1,5 @@
 @echo off
-set "VIRTUAL_ENV=C:\Users\Gerry\Documents\GitHub\ClusteringAlgorithms\venv"
+set "VIRTUAL_ENV=D:\Users\Penny\PycharmProjects\ClusteringAlgorithms\venv"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"

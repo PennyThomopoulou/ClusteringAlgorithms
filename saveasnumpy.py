@@ -1,6 +1,8 @@
 import numpy as np
 
-ratings = np.arange(400000).reshape(100000,4)
+np.set_printoptions(threshold=np.nan)
+
+ratings = np.arange(400000).reshape(100000, 4)
 
 #Read all the ratings
 fileStream = open('u.data','r')
@@ -92,7 +94,6 @@ for line in lines:
     i+=1
 fileStream.close()
 
-print(movies)
 dataset = np.zeros((100000,19),dtype= float)
 i = 0
 for rating in ratings:
@@ -106,5 +107,6 @@ for rating in ratings:
     #userid = rating[0]-1
     #for j in range(24):
     #   dataset[i][j] = fullusers[userid][j+1]
+print(dataset)
 
 np.save('dataset.npy',dataset)
